@@ -40,6 +40,7 @@ class dropbox(
   validate_string($repo_key)
 
   include '::dropbox::install'
+  include '::dropbox::config'
 
   if $manage_repos != false {
     case $::osfamily {
@@ -57,7 +58,7 @@ class dropbox(
   anchor { 'dropbox::begin': }
   anchor { 'dropbox::end': }
 
-  Anchor['dropbox::begin'] -> Class['::dropbox::install']
-    -> Anchor['dropbox::end']
+  Anchor['dropbox::begin'] -> Class['::dropbox::config']
+    -> Class['::dropbox::install'] -> Anchor['dropbox::end']
 
 }

@@ -18,6 +18,7 @@ describe 'dropbox' do
         :lsbdistcodename => 'jessie',
       }}
 
+      it { should contain_class('dropbox::config') }
       it { should contain_class('dropbox::install') }
 
       it 'includes dropbox::repo::apt' do
@@ -31,6 +32,13 @@ describe 'dropbox' do
         'include_src' => false,
         'key'         => '1C61A2656FB57B7E4DE0F4C1FC918B335044912E'
       )}
+
+      describe 'create default file' do
+        it { should contain_file('/etc/default/dropbox-repo').with(
+          'ensure' => 'file',
+          'path'   => '/etc/default/dropbox-repo',
+        )}
+      end
 
       describe 'package installation' do
         it { should contain_package('dropbox').with(
