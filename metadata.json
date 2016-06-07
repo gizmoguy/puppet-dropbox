@@ -1,0 +1,15 @@
+{
+  "name": "gizmoguy-dropbox",
+  "version": "0.1.0",
+  "author": "Brad Cowie",
+  "summary": "Installs dropbox client",
+  "license": "Apache-2.0",
+  "source": "https://github.com/gizmoguy/puppet-dropbox",
+  "project_page": "https://github.com/gizmoguy/puppet-dropbox",
+  "issues_url": "https://github.com/gizmoguy/puppet-dropbox/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
+    {"name":"puppetlabs-apt","version_requirement":"<= 1.8.0"},
+  ]
+}
+
